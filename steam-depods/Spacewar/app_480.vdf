@@ -1,0 +1,14 @@
+"appbuild"
+{
+	"appid" "480"
+	"desc" "Don't look at what's inside, there's nothing like that there."
+	"buildoutput" "..\output"
+	"contentroot" ""
+	"setlive" "descent"
+	"preview" "0"
+	"local"	""
+	"depots"
+	{
+		"480"	".\depot_480.vdf"
+	}
+}
