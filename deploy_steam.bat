@@ -94,4 +94,4 @@ SET "steam_cmd_args=!drm_args! !content_args! +quit"
 START /WAIT devops\steam-sdk\tools\ContentBuilder\builder\steamcmd.exe +login !steam_login! !steam_password! !steam_2fa_code! !steam_cmd_args!
 :: ECHO devops\steam-sdk\tools\ContentBuilder\builder\steamcmd.exe +login !steam_login! !steam_password! !steam_2fa_code! !steam_cmd_args!
 
-:: Exit
+EXIT
