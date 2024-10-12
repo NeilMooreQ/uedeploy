@@ -1,15 +1,16 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
-CD ..
-SET "current_dir=%cd%"
 
-:: %1 - project_name 
-:: %2 - build_dir 
-:: %3 - itch.io branch 
+SET "current_dir=%~dp0%"
+
+:: %1 - project_name
+:: %2 - build_dir
+:: %3 - itch.io branch
 
 :: Set variables
-SET "root_dir=%cd%"
-SET "output_dir=%root_dir%\devops\output"
+SET "root_dir=%current_dir%"
+for %%a in ("%root_dir%..") do set "root_dir=%%~fa"
+SET "output_dir=%current_dir%\output"
 SET "build_dir=%root_dir%\%2"
 SET "itchio_game_dir=%output_dir%\itchio_game"
 SET "project_name=%1"
@@ -64,7 +65,7 @@ FOR /r "%itchio_game_dir%" %%f IN (Manifest_*_Win64.txt *.pdb) DO (
 )
 
 :: Run itch.io command
-START /WAIT devops\itchio-sdk\butler.exe push !itchio_game_dir! !itchio_branch!
+%current_dir%\itchio-sdk\butler.exe push !itchio_game_dir! !itchio_branch!
 :: ECHO devops\itchio-sdk\butler.exe push +login !itchio_game_dir! !itchio_branch!
 
 EXIT

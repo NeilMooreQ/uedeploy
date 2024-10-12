@@ -1,6 +1,10 @@
 @ECHO OFF
+
+SET "current_dir=%~dp0%"
 SET "with_steam=false"
 SET "with_itchio=false"
+
+cd %current_dir%;
 
 :loop
 IF NOT "%1"=="" (
@@ -60,10 +64,11 @@ IF NOT "%1"=="" (
 
 IF NOT "%with_steam%"=="false" (
     ECHO Uploading to Steam...
-    START /WAIT deploy_steam.bat %project_name% %build_dir% %steam_appid% %steam_login% %steam_password% %steam_secret_key%
+    "%current_dir%\deploy_steam.bat" %project_name% %build_dir% %steam_appid% %steam_login% %steam_password% %steam_secret_key%
 )
 
 IF NOT "%with_itchio%"=="false" (
     ECHO Uploading to Itch.io...
-    START /WAIT deploy_itchio.bat %project_name% %build_dir% %itchio_branch%
+	echo "%current_dir%\deploy_itchio.bat"
+    "%current_dir%\deploy_itchio.bat" %project_name% %build_dir% %itchio_branch%
 )
