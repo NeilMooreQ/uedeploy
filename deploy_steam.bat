@@ -22,7 +22,7 @@ SET "steam_login=%4"
 SET "steam_password=%5"
 SET "steam_secret_key=%6"
 
-SET "steam_game_dir=%output_dir%\steam_!steam_appid!"
+SET "steam_game_dir=%output_dir%\steam_game"
 SET "steam_drm_dir=%output_dir%\steam_drm"
 
 :: Create output folder
